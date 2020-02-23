@@ -23,11 +23,11 @@ cmake --build . --target install
 ## Usage Samples
 Sample files are available in the [samples](samples/) directory
 #### Create an SSL over SSL "pingpong" Server and Client
-The filter may be added to the stream buffer the "HandleConnected" callback method (view code below).
+The filter may be added to the stream buffer during the "HandleConnected" callback method (view code below).
 In this case "HandleConnected" will be called 3 times:
 * 1st on TCP Connected.
 * 2nd on SSL Connected.
-* 3rd on SSL over SSL Connected (TCP<->SSL<->).
+* 3rd on SSL over SSL Connected.
 
 Once the tunnel has been established the client will send a "ping" string. The server will reply with a "pong". When the client receives the "pong" it will close the connection (this will also do proper SSL_shutdown).
 ###### Code - Server
