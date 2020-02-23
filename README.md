@@ -3,7 +3,7 @@ An OpenSSL filter for stream buffers in the C++ [libael](https://github.com/Tome
 ## Install
 ```shell
 git clone https://github.com/TomerHeber/libael_openssl
-cd libael && mkdir build && cd build
+cd libael_openssl && mkdir build && cd build
 cmake ..
 ```
 ##### Compile
