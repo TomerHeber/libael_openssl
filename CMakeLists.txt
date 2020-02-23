@@ -45,17 +45,17 @@ install(EXPORT libael_openssl_targets
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
-	"${CMAKE_CURRENT_BINARY_DIR}/libaelOpenSSLConfig.cmake"
+	"${CMAKE_CURRENT_BINARY_DIR}/libael_opensslConfig.cmake"
 	INSTALL_DESTINATION "lib/cmake/libael_openssl"
 	NO_SET_AND_CHECK_MACRO
 	NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
 write_basic_package_version_file(
-	"${CMAKE_CURRENT_BINARY_DIR}/libaelOpenSSLConfigVersion.cmake"
+	"${CMAKE_CURRENT_BINARY_DIR}/libael_opensslConfigVersion.cmake"
 	VERSION "${libael_openssl_VERSION_MAJOR}.${libael_openssl_VERSION_MINOR}.${libael_openssl_VERSION_PATCH}"
 	COMPATIBILITY AnyNewerVersion)
 
 install(FILES
-	${CMAKE_CURRENT_BINARY_DIR}/libaelOpenSSLConfig.cmake
-	${CMAKE_CURRENT_BINARY_DIR}/libaelOpenSSLConfigVersion.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/libael_opensslConfig.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/libael_opensslConfigVersion.cmake
 	DESTINATION lib/cmake/libael_openssl)
