@@ -99,8 +99,8 @@ public:
             cout << elapsed << "connected TCP - upgrading to SSL" << endl;
             state = SSL_FIRST_CONNECT;
             ssl = SSL_new(ssl_ctx_);
-			ssl_filter = std::make_shared<SSLStreamBufferFilter>(stream_buffer, ssl);
-			stream_buffer->AddStreamBufferFilter(ssl_filter);    
+	    ssl_filter = std::make_shared<SSLStreamBufferFilter>(stream_buffer, ssl);
+	    stream_buffer->AddStreamBufferFilter(ssl_filter);    
             break;        
         case SSL_FIRST_CONNECT:        
             cout << elapsed << "connected SSL - upgrading to SSL over SSL" << endl; 
@@ -117,7 +117,7 @@ public:
         }
     }
 
-	void HandleEOF(std::shared_ptr<StreamBuffer> stream_buffer) override {
+    void HandleEOF(std::shared_ptr<StreamBuffer> stream_buffer) override {
         cout << elapsed << "connection closed" << endl;
         streams_buffers_.erase(stream_buffer);
     }
@@ -180,7 +180,7 @@ public:
         }
     }
 
-	void HandleConnected(std::shared_ptr<StreamBuffer> stream_buffer) override { 
+    void HandleConnected(std::shared_ptr<StreamBuffer> stream_buffer) override { 
         SSL *ssl;
         shared_ptr<SSLStreamBufferFilter> ssl_filter;
 
@@ -189,8 +189,8 @@ public:
             cout << elapsed << "connected TCP - upgrading to SSL" << endl;
             state_ = SSL_FIRST_CONNECT;
             ssl = SSL_new(ssl_ctx_);
-			ssl_filter = std::make_shared<SSLStreamBufferFilter>(stream_buffer, ssl);
-			stream_buffer->AddStreamBufferFilter(ssl_filter);    
+	    ssl_filter = std::make_shared<SSLStreamBufferFilter>(stream_buffer, ssl);
+	    stream_buffer->AddStreamBufferFilter(ssl_filter);    
             break;        
         case SSL_FIRST_CONNECT:        
             cout << elapsed << "connected SSL - upgrading to SSL over SSL" << endl; 
@@ -208,7 +208,7 @@ public:
         }    
     }
 
-	void HandleEOF(std::shared_ptr<StreamBuffer> stream_buffer) override {
+    void HandleEOF(std::shared_ptr<StreamBuffer> stream_buffer) override {
         cout << elapsed << "connection closed" << endl;
         // Release the "main" thread.
         done_promise_->set_value();
