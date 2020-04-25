@@ -1,27 +1,34 @@
 # libael_openssl
 An OpenSSL filter for stream buffers in the C++ [libael](https://github.com/TomerHeber/libael) library.
+
 ## Install
 ```shell
 git clone https://github.com/TomerHeber/libael_openssl
 cd libael_openssl && mkdir build && cd build
 cmake ..
 ```
+
 ##### Compile
 ```shell
 cmake --build .
 ```
+
 ##### Compile & Install
 ```shell
 cmake --build . --target install
 ```
+
 ## Platforms
 * Linux
 > Additional platforms may be added in the future (please open feature requests).
+
 ## Features
 * OpenSSL support for the [libael](https://github.com/TomerHeber/libael) stream buffers.
 > Additional features may be added in the future (please open feature requests).
+
 ## Usage Samples
 Sample files are available in the [samples](samples/) directory
+
 #### Create an SSL over SSL "pingpong" Server and Client
 The filter may be added to the stream buffer during the "HandleConnected" callback method (view code below).
 In this case "HandleConnected" will be called 3 times:
@@ -30,6 +37,7 @@ In this case "HandleConnected" will be called 3 times:
 * 3rd on SSL over SSL Connected.
 
 Once the tunnel has been established the client will send a "ping" string. The server will reply with a "pong". When the client receives the "pong" it will close the connection (this will also do proper SSL_shutdown).
+
 ###### Code - Server
 ```c++
 #include <iostream>
@@ -138,6 +146,7 @@ int main()
     promise<void>().get_future().wait();
 }
 ```
+
 ###### Code - Client
 ```c++
 #include <iostream>
@@ -236,6 +245,7 @@ int main()
     cout << elapsed << "ping client finished" << endl;
 }
 ```
+
 ###### Output - Server
 ```shell
 [thread #139661554677568][   0ms] ping server started
@@ -245,6 +255,7 @@ int main()
 [thread #139661522036480][13338ms] connected SSL over SSL
 [thread #139661522036480][13339ms] connection closed
 ```
+
 ###### Output - Client
 ```shell
 [thread #139822899824448][   0ms] ping client started
@@ -255,5 +266,6 @@ int main()
 [thread #139822867183360][  19ms] connection closed
 [thread #139822899824448][  20ms] ping client finished
 ```
+
 ## Documentation
 At the moment there is no documentation available. For any questions or concerns please open an issue. Documentation will be added in time.
